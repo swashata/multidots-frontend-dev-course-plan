@@ -12,4 +12,13 @@
 
 - [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) - Just the
   concepts.
-- [Babel]()
+- [Babel](https://babeljs.io/docs/en/).
+- [Concept of JavaScript bundlers](https://medium.com/@gimenete/how-javascript-bundlers-work-1fc0d0caf2da).
+
+# Day 4
+
+- [Promises Fundamental](https://developers.google.com/web/fundamentals/primers/promises).
+
+# Day 5
+
+Watch this video https://www.youtube.com/watch?v=z4DNlVlOfjU
