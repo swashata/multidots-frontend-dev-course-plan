@@ -40,6 +40,86 @@ Rewrite a legacy application with modern ES6+ code.
 
 # Day 2
 
+> Hands on demo of setting up front-end tooling.
+
+- Linter with ESLint.
+- Webpack, webpack-dev-server
+- wpack.io build tool.
+
+### How do we use ES6 Modules
+
+- We have focus on tools and bundlers, no skipping that part.
+- You know about the task runners.
+- underlying apps behind task-runners and bundlers.
+
+### Why do we need tooling
+
+- Difference task runners and specific tools.
+- Why do we even need a bundler.
+- Where the inspiration came from?
+
+### Q/A
+
+#### Why with just babel, we can not use ES Modules?
+
+To be answered!
+
+### Task
+
+Take the result from Day 1, rewrite using React and split codebase into modules.
+
+# Day 3
+
+Promise and Async+Await.
+
+### Promise
+
+```js
+// Promise API
+const prom = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Done"), 3000);
+}).then(res => console.log(res));
+```
+
+### Async+Await
+
+```js
+// Async+Await
+async function doIt() {
+  const res = await somePromiseFunc();
+  console.log(res);
+}
+```
+
+### Task
+
+Take result from Day 2 and convert selected parts to async+await pattern.
+
+# Day 4
+
+Testing JavaScript application.
+
+### Unit testing
+
+- Which part to unit test.
+- Why we shouldn't unit test react components.
+
+### Integration Tests
+
+- What is it?
+- How to integration test legacy application (dom-testing-library).
+- Integration test React apps (react-testing-library).
+
+### e2e Tests
+
+- With cypress.io.
+
+### Task
+
+Take result from Day 3 and write tests.
+
+# Day 5
+
 > Intro to a simple JAMStack App structure.
 
 ### Intro to a React App
@@ -76,83 +156,3 @@ like Netlify or firebase or now.sh and scale up.
 
 Extend the task list to add task progress and expiry date. Have some majestic
 UI to warn user about expiring tasks.
-
-# Day 3
-
-> Hands on demo of setting up front-end tooling.
-
-- Linter with ESLint.
-- Webpack, webpack-dev-server
-- wpack.io build tool.
-
-### How do we use ES6 Modules
-
-- We have focus on tools and bundlers, no skipping that part.
-- You know about the task runners.
-- underlying apps behind task-runners and bundlers.
-
-### Why do we need tooling
-
-- Difference task runners and specific tools.
-- Why do we even need a bundler.
-- Where the inspiration came from?
-
-### Q/A
-
-#### Why with just babel, we can not use ES Modules?
-
-To be answered!
-
-### Task
-
-Take the result from Day 1, rewrite using React and split codebase into modules.
-
-# Day 4
-
-Promise and Async+Await.
-
-### Promise
-
-```js
-// Promise API
-const prom = new Promise((resolve, reject) => {
-  setTimeout(() => resolve("Done"), 3000);
-}).then(res => console.log(res));
-```
-
-### Async+Await
-
-```js
-// Async+Await
-async function doIt() {
-  const res = await somePromiseFunc();
-  console.log(res);
-}
-```
-
-### Task
-
-Take result from Day 3 and convert selected parts to async+await pattern.
-
-# Day 5
-
-Testing JavaScript application.
-
-### Unit testing
-
-- Which part to unit test.
-- Why we shouldn't unit test react components.
-
-### Integration Tests
-
-- What is it?
-- How to integration test legacy application (dom-testing-library).
-- Integration test React apps (react-testing-library).
-
-### e2e Tests
-
-- With cypress.io.
-
-### Task
-
-Take result from Day 4 and write tests.
