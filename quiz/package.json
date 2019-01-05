@@ -1,0 +1,13 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Swashata Ghosh",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@wpquark/eslint-config": "^3.0.0",
+    "eslint": "^5.12.0",
+    "prettier": "^1.15.3"
+  }
+}
