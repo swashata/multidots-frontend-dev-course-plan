@@ -1,16 +1,3 @@
-B1:
-B2: (string reverse array) Monark Patel
-B3: (number and string concat with arr.reduce) Mayur Baroliya, Himani Patel, Juhi Trivedi, Rohit Gupta
-B4: (iffe and var scope) Himani Patel, Juhi Trivedi
-B5: (pure array methods) Juhi Trivedi
-
-A1:
-A2:
-A3:
-A4: (object shallow copy) Asad Multidots, Nishit Langaliya
-A5: (this for arrow function) Nishit Langaliya
-A6: (var lexical scope and shadow) Mayur Baroliya, Anuja Baroliya
-
 Q to all,
 
 - What is a critical CSS

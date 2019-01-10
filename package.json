@@ -1,12 +1,18 @@
 {
-  "name": "quiz",
+  "name": "sessions",
   "version": "1.0.0",
+  "description": "Training sessions multidots",
   "main": "index.js",
+  "scripts": {
+    "start": "node ./scripts/start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Swashata Ghosh",
   "license": "MIT",
   "private": true,
   "devDependencies": {
     "@wpquark/eslint-config": "^3.0.0",
+    "browser-sync": "^2.26.3",
     "eslint": "^5.12.0",
     "prettier": "^1.15.3"
   }
