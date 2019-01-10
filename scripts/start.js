@@ -5,6 +5,7 @@ const bs = require('browser-sync').create();
 bs.init({
 	server: {
 		baseDir: 'sessions',
+		directory: true,
 	},
-	files: ['sessions/class-*/session/**/*.html'],
+	files: ['sessions/class-*/session/**/*.{js,html}'],
 });
