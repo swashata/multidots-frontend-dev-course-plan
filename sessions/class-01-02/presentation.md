@@ -98,7 +98,7 @@ Day 2
 
 -   Regular Function. Named and anonymous function expressions.
 -   Function statement
--   Prototypal inheritance
+-   Prototypal inheritance.
 -   Scope of this.
 -   Rest parameters.
 -   Spread parameters.
@@ -115,3 +115,10 @@ Day 2
 Q5 of Advanced section:
 
 What is the scope of `this` for `scob.getHungry`?
+
+## Classes
+
+-   constructor.
+-   class methods.
+-   class properties.
+-   static methods and properties.
