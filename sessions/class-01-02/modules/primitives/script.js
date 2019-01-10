@@ -1,6 +1,13 @@
+/* eslint-disable strict */
 /* eslint-disable no-self-compare */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-restricted-syntax */
+
+// ? Why use strict
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+
+'use strict';
+
 /**
  * * JavaScript Numbers
  * - Assignable with Number() or just as a literal.
@@ -121,6 +128,19 @@ console.log(mySecretiveObj[symOne]);
 // to get all symbol properties, use Object.getOwnpropertySymbols
 console.log(Object.getOwnPropertySymbols(mySecretiveObj));
 console.log(Object.getOwnPropertySymbols(mySecretiveObj)[0] === symOne);
+
+// Can not be cast
+try {
+	console.log(Number(Symbol('10')));
+} catch (e) {
+	console.log(e);
+}
+
+// Symbol can not be used to cast, like Boolean or Number or String
+console.log(Symbol(12));
+// It basically takes the string value
+// of the parameter
+console.log(Symbol({}));
 
 /**
  * * Other JavaScript primitives

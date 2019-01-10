@@ -1,3 +1,6 @@
+/* eslint-disable func-names */
+/* eslint-disable strict */
+
 'use strict';
 
 /**
@@ -15,14 +18,12 @@ parsetimeFunction();
 // Runtime, could be anonymous
 const runtimeFunction = function() {
 	return 1;
-}
-runtimeFunction();
+};
+console.log(runtimeFunction());
 
 // Arrow Functions
 // Always runtime and anonymous
-const coolFunc = () => {
-	return 1;
-}
+const coolFunc = () => 1;
 // Or even shorter
 // const coolFunc = () => 1;
 
@@ -30,16 +31,16 @@ const coolFunc = () => {
  * Prototypal inheritance
  */
 function Name(name) {
-	if (!this instanceof Name) {
+	if (!(this instanceof Name)) {
 		throw new TypeError('Name can only be instantiated');
 	}
 	this.name = name;
 }
 Name.prototype = {
-	getFirstName: function() {
+	getFirstName() {
 		return this.name.split(' ')[0];
 	},
-	getLastName: function() {
+	getLastName() {
 		return this.name.split(' ')[1];
-	}
-}
+	},
+};
