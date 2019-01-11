@@ -1,11 +1,9 @@
 ## Declaration, Expression and Statements
 
--   Declaration initiates a value.
--   Expression produces a value.
--   Statement performs an action.
--   Wherever JavaScript expects a statement, you can also write an expression.
--   But not reverse, `if` can not become argument of a function.
--   Immediately invoked function expression (iffe).
+-   ✅ Declaration initiates a value.
+-   ✅ Expression produces a value.
+-   ✅ Statement performs an action.
+-   ✅ Immediately invoked function expression (iffe).
 
 ## Functions
 
@@ -33,7 +31,7 @@ What is the scope of `this` for `scob.getHungry`?
 
 ## Classes
 
--   constructor.
--   class methods.
--   class properties.
--   static methods and properties.
+-   ✅ constructor.
+-   ✅ class methods.
+-   ✅ class properties.
+-   ✅ static methods and properties.
