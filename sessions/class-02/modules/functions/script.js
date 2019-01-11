@@ -396,4 +396,34 @@ function noisy(fn) {
 const noisyMin = noisy(Math.min);
 console.log(noisyMin(1, 3, -1));
 
+// ✅ Compose functions.
+
+// We have set of users
+const users = [
+	{ name: 'Jeff', age: 14 },
+	{ name: 'Jack', age: 19 },
+	{ name: 'Milady', age: 22 },
+];
+
+// 🎙️ We have an utility function to get an array of user names
+function getUserName(u) {
+	return u.map(user => user.name);
+}
+
+// 🎙️ We have an utility function to get users whose age is greater than 18
+function getUserWhoseAgeIsGreaterThan18(u) {
+	return u.filter(user => user.age > 18);
+}
+
+// 🎙️ Another utility to compose multiple functions
+const compose = (...functions) => args =>
+	functions.reduceRight((arg, fn) => fn(arg), args);
+
+// Create a compose function based on two utilities
+const getUserNameWhoseAgeIsGreaterThan18 = compose(
+	getUserName,
+	getUserWhoseAgeIsGreaterThan18
+);
+console.log(getUserNameWhoseAgeIsGreaterThan18(users));
+
 // 🎙️ And we are hopefully done with functions

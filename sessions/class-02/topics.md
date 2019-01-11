@@ -21,6 +21,7 @@
 -   ✅ Rest parameters.
 -   ✅ Spread parameters.
 -   ✅ High order functions.
+-   ✅ Compose functions.
 
 #### Q/A
 
