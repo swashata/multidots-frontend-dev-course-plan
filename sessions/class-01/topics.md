@@ -14,57 +14,68 @@ Asking because many has said, nodejs is the core thing for react and some other 
 
 ---
 
+## Explain Concepts
+
+-   What really is Nodejs.
+-   When do we need nodejs in our development workflow?
+-   So can we develop with modern JavaScript without nodejs?
+-   Why do we need react today?
+
 ## Variables and Scope
 
--   What exactly is `var`.
--   What are different types of scopes, lexical, block, global.
--   Why did we need `const` and `let`.
+-   ✅ How do we declare variables in JavaScript.
+-   ✅ What are different types of scopes, lexical, block, global.
+-   ✅ Why did we need `const` and `let`.
+-   ✅ Concept of variable reassignment and `const`.
 
 #### Q/A
 
-**Anis Charolia**
-
-Q4 of Beginner JavaScript
+**Q4 of Beginner JavaScript**
 
 Why is the `typeof a` undefined?
 
-**Mayur Baroliya**
-
-Q5 of Advanced JavaScript
+**Q5 of Advanced JavaScript**
 
 How is `var name` shadowing `const name` in the function?
 
 ## Primitives
 
--   Number, String, Boolean, Symbol, null, undefined.
+-   ✅ Number.
+-   ✅ String.
+-   ✅ Boolean.
+-   ✅ Symbol.
+-   ✅ Others -> null, undefined.
 
 #### Q/A
 
-**Mayur Baroliya**
-
-Q3 of Beginner Section
+**Q3 of Beginner Section**
 
 Can you tell me what happens when you add number to a string?
 
 ## Object
 
--   What is it.
--   Reference variable.
--   Shallow copy with `Object.assign`, ES spread operator.
--   Object destructure with ES rest.
--   `const` and object mutation.
+-   ✅ What is Object.
+-   ✅ Creating object.
+-   ✅ Accessing properties of object.
+-   ✅ Reference variable.
+-   ✅ Equality of objects.
+
+## Array
+
+-   ✅ What is Array.
+-   ✅ Creating an Array.
+-   ✅ Accessing items of array.
+-   ✅ Length of an Array.
+-   ✅ Reference and Equality of array.
 
 #### Q/A
 
-**Mansi Trivedi** / **Chirag Patel**
-
-Q4 of Advanced section:
+**Q4 of Advanced section:**
 
 Why `flash` is not `flashFixed`, yet the address reference to the same object?
 
 ## Modular JavaScript
 
--   Why do we need modules?
--   CommonJS (`exports.foo` | `require`).
--   CJS (`module.exports` | `require`).
--   ES Modules (`export` | `import`).
+-   ✅ CommonJS (`exports.foo` | `require`).
+-   ✅ Nodejs Modules (`module.exports` | `require`).
+-   ✅ ES Modules (`export` | `import`).
