@@ -50,10 +50,9 @@ Can you tell me what happens when you add number to a string?
 
 -   What is it.
 -   Reference variable.
--   Shallow copy with `Object.assign`, ES rest operator.
--   Object destructure.
+-   Shallow copy with `Object.assign`, ES spread operator.
+-   Object destructure with ES rest.
 -   `const` and object mutation.
--   Looping with Object.keys and for..of.
 
 #### Q/A
 
@@ -63,18 +62,9 @@ Q4 of Advanced section:
 
 Why `flash` is not `flashFixed`, yet the address reference to the same object?
 
-## Array
+## Modular JavaScript
 
--   A type of object.
--   Difference with object.
--   Shallow copy with ES rest operator and `array.prototype.slice`.
--   Destructure arrays.
--   array.map, array.reduce, array.filter, array.find, array.findIndex, array.includes.
-
-#### Q/A
-
-**Monark Patel**
-
-Q2 of Beginner Section
-
-Can you tell me what exactly is the return of `somethingStringy` function.
+-   Why do we need modules?
+-   CommonJS (`exports.foo` | `require`).
+-   CJS (`module.exports` | `require`).
+-   ES Modules (`export` | `import`).
