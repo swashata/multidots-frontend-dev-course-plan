@@ -17,9 +17,9 @@ Can you tell me what exactly is the return of `somethingStringy` function.
 
 ## Revisit objects
 
--   ✅ Shallow copy with `Object.assign`, ES spread operator.
--   ✅ Object destructure with ES rest.
--   ✅ `const` and object mutation.
+-   Shallow copy with `Object.assign`, ES spread operator.
+-   Object destructure, with ES rest.
+-   `const` and object mutation.
 -   Shorthand object property and methods.
 -   Variable property name with `[]`.
 -   Looping with `Object.keys`, `Object.entries` and `for..of`.
