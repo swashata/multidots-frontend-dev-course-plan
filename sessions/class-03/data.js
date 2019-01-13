@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 // 🎙️ I have used faker.js to generate the random data
 // 🎙️ With the following code
 function generateFakeUsers(faker) {

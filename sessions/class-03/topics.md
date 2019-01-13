@@ -1,11 +1,14 @@
 ## Revisit Array
 
--   Shallow copy with ES spread operator and `array.prototype.slice`.
--   Destructure arrays, with rest.
--   Looping with `forEach` and `for..of`.
--   array.map, array.reduce, array.filter, array.find, array.findIndex, array.includes.
--   array.from and array.of.
--   array.some and array.every.
+-   ✅ Shallow copy with ES spread operator and `array.prototype.slice`.
+-   ✅ Destructure arrays.
+-   ✅ With rest.
+-   ✅ Looping with `forEach` and `for..of`.
+-   ✅ array.map, array.reduce, array.filter.
+-   ✅ array.sort.
+-   ✅ array.find, array.findIndex,
+-   ✅ array.includes, array.some and array.every.
+-   ✅ Array.from and Array.of.
 
 #### Q/A
 
