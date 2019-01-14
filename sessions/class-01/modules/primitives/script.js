@@ -95,6 +95,8 @@ for (const ch of aString) {
 }
 // 🎙️ for..of is a new JavaScript language feature
 // 🎙️ that lets us iterate any object which has the @@iterate method.
+// 🎙️ For details do visit this link
+// 🎙️ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterables
 
 // Cast to String
 // 🎙️ For number, we can use `.toString` on the number itself.

@@ -331,6 +331,16 @@ console.log(fName, lName);
 	console.log(`Mr. ${lastName} is a ${profile} at ${companies.join(', ')}.`);
 })();
 
+// 🎙️ Here's a cool trick to swap two variables
+(function() {
+	let min = 10;
+	let max = 2;
+	if (min > max) {
+		[min, max] = [max, min];
+	}
+	console.log(min, max);
+})();
+
 // ✅ With rest.
 
 // 🎙️ One last thing is the rest operator
@@ -370,6 +380,25 @@ console.log(Array.prototype[Symbol.iterator]);
 for (const item of data) {
 	console.log(item.lName);
 }
+
+// ✅ Iterate with array.entries.
+
+// 🎙️ While we are still on the topic of looping
+// 🎙️ Let's see one of the new iterator methods
+// 🎙️ array.entries gives an iterator object
+// 🎙️ which yields an array having the index and the element
+// 🎙️ More about iterators and generators here
+// 🎙️ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterables
+(function() {
+	const dataEntries = data.entries();
+	// 🎙️ So an item of the dataEntries looks like this
+	// 🎙️ [index, element]
+	// 🎙️ In the for..of loop, we have destructured the item array
+	// 🎙️ into index and person.
+	for (const [index, person] of dataEntries) {
+		console.log(index, person.fName);
+	}
+})();
 
 // ✅ array.map, array.reduce, array.filter
 

@@ -2,38 +2,32 @@
  * Beginner JavaScript
  */
 // spread and array
+// 💰 B2 [class 03 - revisit arrays - spread and shallow copy]
 function somethingStringy(str) {
 	return [...str].reverse();
 }
 console.log(somethingStringy('multidots'));
 
 // rest, array.reduce and type safety
+// 💰 B3 [class 03 - revisit array - array.reduce]
 function sumItUp(...input) {
 	return input.reduce((acc, i) => acc + i);
 }
 console.log(sumItUp('1', 2, 4));
 
 // closure
+// 💰 B4 [class 01 - variables and scope]
 (function() {
 	// eslint-disable-next-line no-var
 	var a = 1;
 })();
 console.log(typeof a);
 
-// hoisting
-// eslint-disable-next-line prefer-const
-const name = 'Scooby';
-(function() {
-	console.log(`My name is ${name}`);
-	// eslint-disable-next-line no-var
-	var name = 'Shelly';
-	console.log(`My new name is ${name}`);
-})();
-
 /**
  * Advanced JavaScript
  */
 // scope and this
+// 💰 A1 [class 02 - function - Scope of this.]
 function hello() {
 	this.getHello = function() {
 		return 'Hello';
@@ -47,6 +41,7 @@ try {
 }
 
 // template string
+// 💰 A2 [class 04 - template string - tagged template]
 const info = {
 	age: 28,
 	name: 'Swas',
@@ -62,6 +57,7 @@ console.log(
 );
 
 // destructure
+// 💰 A3 [class 03 - Array/Object - Destructuring]
 function destruct(obj, arr) {
 	const { name, age = 100 } = obj;
 	const [, { foo }] = arr;
@@ -69,7 +65,25 @@ function destruct(obj, arr) {
 }
 console.log(destruct({ age: 28 }, [20, { foo: 10 }]));
 
+// mutation
+// 💰 A4 [class 03 - Array/Object - Shallow copy]
+function updateAddr(person, lineTwo) {
+	const newPerson = { ...person };
+	newPerson.addr.lineTwo = lineTwo;
+	return newPerson;
+}
+const flash = {
+	name: 'Barry Allen',
+	addr: {
+		lineOne: 'West house',
+		lineTwo: 'Star City',
+	},
+};
+const flashFixed = updateAddr(flash, 'Central City');
+console.log(flash === flashFixed, flash.addr.lineTwo);
+
 // arrow function and this
+// 💰 A5 [class 02 - Scope of this for arrow functions]
 function Dog(name) {
 	this.name = name;
 	this.hungry = false;
@@ -88,18 +102,13 @@ scob.getHungry = () => {
 scob.getHungry();
 scob.bark();
 
-// mutation
-function updateAddr(person, lineTwo) {
-	const newPerson = { ...person };
-	newPerson.addr.lineTwo = lineTwo;
-	return newPerson;
-}
-const flash = {
-	name: 'Barry Allen',
-	addr: {
-		lineOne: 'West house',
-		lineTwo: 'Star City',
-	},
-};
-const flashFixed = updateAddr(flash, 'Central City');
-console.log(flash === flashFixed, flash.addr.lineTwo);
+// hoisting
+// eslint-disable-next-line prefer-const
+// 💰 A6 [class 01 - variables and scope]
+const name = 'Scooby';
+(function() {
+	console.log(`My name is ${name}`);
+	// eslint-disable-next-line no-var
+	var name = 'Shelly';
+	console.log(`My new name is ${name}`);
+})();
