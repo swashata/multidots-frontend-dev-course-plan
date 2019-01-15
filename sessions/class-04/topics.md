@@ -1,7 +1,16 @@
-## Template Strings
+## Template Literals
 
--   Introduction to template strings.
--   Tagged template literals.
+-   ✅ Introduction to template literals.
+-   ✅ Multi-line strings.
+-   ✅ Expression interpolation.
+-   ✅ Nesting templates.
+-   ✅ Tagged template literals.
+
+#### Q/A
+
+**Q2 of Advanced JavaScript**
+
+So what's the output of `tagMd`?
 
 ## Promises
 

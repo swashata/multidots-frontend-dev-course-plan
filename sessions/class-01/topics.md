@@ -67,6 +67,7 @@ Can you tell me what happens when you add number to a string?
 -   ✅ Accessing items of array.
 -   ✅ Length of an Array.
 -   ✅ Reference and Equality of array.
+-   ✅ Checking if an object is an array.
 
 #### Q/A
 

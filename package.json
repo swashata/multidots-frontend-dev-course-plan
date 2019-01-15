@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./scripts/start.js",
     "test": "jest",
-    "test:03": "jest sessions/class-03 --watchAll"
+    "test:03": "jest sessions/class-03 --watchAll",
+    "test:04": "jest sessions/class-04 --watchAll"
   },
   "author": "Swashata Ghosh",
   "license": "MIT",

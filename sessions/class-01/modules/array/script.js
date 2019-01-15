@@ -77,3 +77,11 @@ console.log(c, b);
 console.log(c === b);
 // 🎙️ regardless of the shape
 console.log([1] === [1]);
+
+// ✅ Checking if an object is an array.
+
+// 🎙️ To check if an something is an array
+// 🎙️ we use Array.isArray
+console.log(Array.isArray({}));
+console.log(Array.isArray([]));
+console.log(Array.isArray(null));
