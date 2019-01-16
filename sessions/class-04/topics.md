@@ -14,6 +14,16 @@ So what's the output of `tagMd`?
 
 ## Promises
 
+-   ✅ Concept of promise.
+-   ✅ Example using browser `fetch`.
+-   ✅ Creating your own promise.
+-   ✅ Error handling with promise.
+-   ✅ Resolving multiple promises with `Promise.all`.
+-   ✅ Example - Convert classic event listener into promise.
+
 ## Async/Await
 
-## Real world examples
+-   What is `async` function.
+-   How we can `await` promises inside `async` functions.
+-   Error handling with `async` functions.
+-   Resolving multiple promises with `await`.

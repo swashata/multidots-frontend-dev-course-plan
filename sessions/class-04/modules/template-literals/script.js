@@ -52,7 +52,7 @@ this is really awesome?? right`);
 	// 🎙️ Note that the stringy value of the expression is always considered
 	// 🎙️ So by default, we can not do like
 	console.log(
-		`let's call a function ${function() {
+		`let's call a function expression ${function() {
 			return 'hello';
 		}} like this?`
 	);
@@ -149,7 +149,7 @@ this is really awesome?? right`);
 		// 	values[1] +
 		// 	str[2] +
 		// 	values[2] +
-		// 	str[1]
+		// 	str[3]
 		// );
 		// 🎙️ Notice that although the placeholder ends the literal
 		// 🎙️ We still have an empty string at the end of str variable
