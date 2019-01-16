@@ -1,17 +1,20 @@
-## Sample Nodejs program
+## Make sure we code right
 
--   Use CJS, native to nodejs.
--   No compiler is necessary.
--   A simple nodejs app to display weather based on user input.
+-   Why ESLint?
+-   Hands on demo setting up project with ESLint.
+-   Which rules to use?
+-   Creating personal config files.
 
-## JavaScript Tooling
+## Write code with latest JavaScript features
 
--   Hands on demo with just babel.
--   Hands on demo with webpack.
--   Using libraries and frameworks from npmjs.com with webpack.
--   Using mature community tools like CRA, Gatsbyjs, wpack.io.
+-   Why can't we use ESNext features for all browsers?
+-   Babel to rescue.
+-   Hands on demo with babel.
 
-## Concept of Testing JavaScript
+## Module bundler and npmjs.com
 
--   Hands on demo with Jest.
--   Difference between integration and unit test.
+-   Why writing in modules is a good idea?
+-   Can we just use babel to compile modules too?
+-   Hands on demo with webpack, module bundler.
+-   Hands on demo with webpack-dev-server.
+-   Using libraries from npmjs.com with module bundlers.
