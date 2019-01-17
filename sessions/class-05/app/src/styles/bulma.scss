@@ -1,0 +1,15 @@
+// Import bulma modules
+// Just the ones we need
+@import '~bulma/sass/utilities/_all';
+@import '~bulma/sass/base/_all';
+
+// We need Section
+@import '~bulma/sass/layout/section';
+// We need Box
+@import '~bulma/sass/elements/box';
+// We need form
+@import '~bulma/sass/elements/form';
+// We need buttons
+@import '~bulma/sass/elements/button';
+// We need containers
+@import '~bulma/sass/elements/container';

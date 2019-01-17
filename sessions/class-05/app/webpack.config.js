@@ -4,7 +4,9 @@ const path = require('path');
 
 // Require some plugins we need for webpack
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // A flag to see if this is development or production
 const isDev = process.env.NODE_ENV !== 'production';
@@ -17,14 +19,14 @@ module.exports = {
 	},
 	// output
 	output: {
-		filename: isDev ? 'main.js' : 'main-[hash:6].js',
-		path: path.resolve(__dirname, 'build/dist'),
-		// This is the path of the output directory
+		filename: isDev ? 'dist/[name].js' : 'dist/[name]-[hash:6].js',
+		path: path.resolve(__dirname, 'build'),
+		// This is the path of the output (build) directory
 		// Relative to our index.html file
-		publicPath: '/dist/',
+		publicPath: '/',
 	},
 	// How do we handle modules
-	modules: {
+	module: {
 		rules: [
 			// How do we process .js files?
 			{
@@ -101,12 +103,23 @@ module.exports = {
 
 	// Plugins
 	plugins: [
+		// Clean the build directory
+		new CleanWebpackPlugin(['dist', 'index.html'], {
+			root: path.resolve(__dirname, 'build'),
+			verbose: true,
+		}),
+		// Create Production HTML file
+		new HtmlWebpackPlugin({
+			title: 'Webpack Demo with Counter App',
+			filename: 'index.html',
+			template: './src/index.html',
+		}),
 		// Extract CSS into separate files
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// both options are optional
-			filename: isDev ? '[name].css' : '[name].[hash:6].css',
-			chunkFilename: isDev ? '[id].css' : '[id].[hash:6].css',
+			filename: 'dist/styles/[name].[hash:6].css',
+			chunkFilename: 'dist/styles/[id].[hash:6].css',
 		}),
 		// Lets use isDev from our scripts
 		new webpack.DefinePlugin({

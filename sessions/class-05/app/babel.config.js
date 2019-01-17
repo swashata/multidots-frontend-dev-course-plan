@@ -11,6 +11,7 @@ module.exports = {
 			},
 		],
 	],
+	plugins: ['@babel/plugin-proposal-class-properties'],
 	// In case when we use jest, we would like
 	// the configuration to be a bit different
 	env: {
