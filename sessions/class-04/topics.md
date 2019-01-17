@@ -23,7 +23,8 @@ So what's the output of `tagMd`?
 
 ## Async/Await
 
--   What is `async` function.
--   How we can `await` promises inside `async` functions.
--   Error handling with `async` functions.
--   Resolving multiple promises with `await`.
+-   ✅ What is `async` function.
+-   ✅ How we can `await` promises inside `async` functions.
+-   ✅ Error handling with `async` functions.
+-   ✅ Resolving multiple promises with `await`.
+-   ✅ Refactor promise callbacks with async-await.

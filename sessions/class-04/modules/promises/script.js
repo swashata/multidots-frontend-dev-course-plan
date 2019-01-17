@@ -226,13 +226,15 @@
 		// 🎙️ So this function will return a promise
 		return new Promise((resolve, reject) => {
 			// 🎙️ Which would add an event listener to the element
-			const listener = event => {
+			elm.addEventListener('click', function listener(event) {
 				event.preventDefault();
+				// 🎙️ Which in turn would remove itself from the event listener
+				// 🎙️ See we are using named function expression
+				// 🎙️ So the name of the function is available to itself
 				elm.removeEventListener('click', listener);
 				// 🎙️ and once it is clicked, the promise will resolve.
 				resolve([event, elm]);
-			};
-			elm.addEventListener('click', listener);
+			});
 
 			// 🎙️ But we can wait only for so long
 			setTimeout(() => {
@@ -247,6 +249,12 @@
 	// 🎙️ Add our promisified event listeners to them
 	const breakfastPromises = Array.from(anchors).map(anchor =>
 		once(anchor, 5000)
+			// 🎙️ Also we change the individual anchor items on done
+			.then(([event, elm]) => {
+				const { textContent: label } = elm;
+				const [, item] = label.split(' ');
+				elm.textContent = `Done having ${item}`;
+			})
 	);
 	// 🎙️ When all the promises are done, we change the notification
 	Promise.all(breakfastPromises)
@@ -265,14 +273,4 @@
 			notification.classList.remove('is-info');
 			notification.classList.add('is-danger');
 		});
-	// 🎙️ Also we change the individual anchor items on done
-	breakfastPromises.forEach(pm => {
-		pm.then(([event, elm]) => {
-			const { textContent: label } = elm;
-			const [, item] = label.split(' ');
-			elm.textContent = `Done having ${item}`;
-		}).catch(e => {
-			console.log(e);
-		});
-	});
 })();
