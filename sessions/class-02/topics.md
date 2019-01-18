@@ -8,6 +8,7 @@
 ## Functions
 
 -   ✅ Function declaration.
+-   ✅ Function parameters.
 -   ✅ Named and anonymous function expressions.
 -   ✅ Arrow function.
 -   ✅ Constructor functions.
