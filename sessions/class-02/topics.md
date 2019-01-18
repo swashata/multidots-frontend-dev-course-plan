@@ -23,9 +23,7 @@
 
 #### Q/A
 
-**Mansi Trivedi** / **Smit Modi**
-
-Q5 of Advanced section:
+**Q5 of Advanced section:**
 
 What is the scope of `this` for `scob.getHungry`?
 

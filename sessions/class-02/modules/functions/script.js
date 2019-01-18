@@ -14,6 +14,16 @@ function parsetimeFunction() {
 }
 parsetimeFunction();
 
+// ✅ Function parameters.
+
+// 🎙️ Like any langauge functions can have parameters
+// 🎙️ Also with default value.
+function sayMyName(firstName, lastName, middleName = '') {
+	console.log(firstName, middleName);
+}
+sayMyName('Ross', 'Geller');
+sayMyName('Chandler', 'Bing', 'Muriel');
+
 // ✅ Named and anonymous function expressions.
 
 // 🎙️ But we can assign a function to a variable
@@ -232,7 +242,60 @@ console.log(shape.perimeter());
 // 🎙️ Among your modules.
 
 // 🎙️ Infact, ES6 has introduced `class` to JavaScript
-// 🎙️ But it is syntactic sugar around JavaScript's own prototypal inheritance
+// 🎙️ But it is syntactic sugar around JavaScript's own prototypal inheritance.
+
+// 🎙️ There's also another way to inherit prototype
+// 🎙️ Say we have a Staff in a company
+function Staff() {}
+Staff.prototype = {
+	init(fName, lName) {
+		this.fName = fName;
+		this.lName = lName;
+	},
+	getName() {
+		return `${this.fName} ${this.lName}`;
+	},
+	checkIn() {
+		return 'checking in';
+	},
+};
+// 🎙️ Now we also have manager, who are also staff
+function Manager() {}
+// 🎙️ Here's the interesting thing
+// 🎙️ We instantiate a new Staff object
+// 🎙️ And set it as the prototype of Manager.
+// 🎙️ Since the Staff object instance has all the Staff prototype
+// 🎙️ So Manager gets them in its prototype chain.
+Manager.prototype = new Staff();
+
+// 🎙️ Now only managers can update the project status
+// 🎙️ Right?
+Manager.prototype.updateProjectStatus = function() {
+	return 'updating project status';
+};
+
+// 🎙️ Let's take them for a test drive
+const mrMayur = new Manager();
+mrMayur.init('Mayur', 'Keshwani');
+console.log(mrMayur.getName());
+console.log(mrMayur.checkIn());
+console.log(mrMayur.updateProjectStatus());
+
+// 🎙️ And we can have runtime prototype methods
+Staff.prototype.checkOut = function() {
+	return 'checking out';
+};
+
+console.log(mrMayur.checkOut());
+
+// 🎙️ So why I showed you all the weird ways of inheritance
+// 🎙️ in JavaScript?
+//     👍 Those are current standards.
+//         https://bit.ly/2AU6I42
+//     👍 Those are easy to understand what's going on.
+// 🎙️ So which one to use?
+//     👍 Use classes when you need inheritance.
+//     👍 If you must use functions use the one with Object.create.
 
 // ✅ Scope of `this` for arrow functions.
 
