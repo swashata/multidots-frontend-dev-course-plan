@@ -1,3 +1,6 @@
+// Import some of our utility from previously completed exercise
+import { safelyConvertToNumber } from '../../class-01/exercise/start';
+
 /**
  * Inserts an item to an existing array at a particular position
  * shifting the rest of the items.
@@ -88,4 +91,34 @@ export function reOrderArray(arr, from, to) {
  */
 export function getEmails(data) {
 	return data.map(item => item.email);
+}
+
+/**
+ * Add any number of arguments passed to the function and return
+ * the sum value.
+ *
+ * 🧸 - Use rest parameter.
+ * 🧸 - Take into account if an argument is not a number.
+ * 🧸 - Use array.reduce.
+ *
+ * @param {any[]} numbers Possibly numbers.
+ * @returns {number} Summed up value or 0 if all NaN.
+ */
+export function addNumbers(...numbers) {
+	const parsedNumbers = numbers.map(safelyConvertToNumber);
+	return parsedNumbers.reduce((acc, cur) => acc + cur, 0);
+}
+
+/**
+ * A function to reverse the characters of a string.
+ *
+ * 🧸 - Spread the string into array.
+ * 🧸 - Use array methods to reverse it.
+ *
+ *
+ * @param {string} str Input string.
+ * @returns {string} Reversed string.
+ */
+export function reverseString(str) {
+	return [...str].reverse().join('');
 }
