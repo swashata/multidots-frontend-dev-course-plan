@@ -8,6 +8,9 @@ import { safelyConvertToNumber } from '../../class-01/exercise/start';
  * This is a pure function and doesn't change the original
  * parameters.
  *
+ * It should throw an error if index is less than 0
+ * or greater than array.length
+ *
  * @param {Array} arr Input array.
  * @param {number} index Index where to insert the item.
  * @param {any} item The item to insert.
@@ -15,9 +18,14 @@ import { safelyConvertToNumber } from '../../class-01/exercise/start';
  * @return {Array} The new array with the item inserted.
  */
 export function insertItemAtIndex(arr, index, item) {
+	// 🧸 Make sure it checks for index and array.length
+	if (index < 0 || index > arr.length) {
+		throw new Error('index should be within array length');
+	}
 	// 🧸 Use Array.prototype.slice to create two arrays
 	// 🧸 Use spread operator to join them with the new item
 	// 🧸 At the index.
+	return [...arr.slice(0, index), item, ...arr.slice(index)];
 }
 
 /**
@@ -121,4 +129,27 @@ export function addNumbers(...numbers) {
  */
 export function reverseString(str) {
 	return [...str].reverse().join('');
+}
+
+/**
+ * A function to filter users by countries.
+ *
+ * It takes multiple countries and filters out users who are from those countries.
+ *
+ * 🧸 - Use Array.of if countries is not an Array.
+ * 🧸 - Use array.filter to filter array by a callback function
+ * 🧸 - Use array.includes to make sure the address matches the countries.
+ *
+ * @param {Array} users Array of users object.
+ * @param {string[]} countries Array of countries.
+ * @return {Array} Filtered users who belong to the mentioned country.
+ */
+export function getUsersFromCountries(users, countries) {
+	let acceptedCountries = countries;
+	if (!Array.isArray(countries)) {
+		acceptedCountries = Array.of(countries);
+	}
+	return users.filter(user =>
+		acceptedCountries.includes(user.address.country)
+	);
 }
