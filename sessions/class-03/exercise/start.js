@@ -19,13 +19,9 @@ import { safelyConvertToNumber } from '../../class-01/exercise/start';
  */
 export function insertItemAtIndex(arr, index, item) {
 	// 🧸 Make sure it checks for index and array.length
-	if (index < 0 || index > arr.length) {
-		throw new Error('index should be within array length');
-	}
 	// 🧸 Use Array.prototype.slice to create two arrays
 	// 🧸 Use spread operator to join them with the new item
 	// 🧸 At the index.
-	return [...arr.slice(0, index), item, ...arr.slice(index)];
 }
 
 /**
@@ -37,58 +33,30 @@ export function insertItemAtIndex(arr, index, item) {
  * @param {number} to The new position where to insert it.
  */
 export function reOrderArray(arr, from, to) {
-	// If from and to are just the same, then just
-	// return a copy of the array
+	// 🧸 If from and to are just the same, then just
+	// 🧸 return a copy of the array
 	if (from === to) {
-		return [...arr];
 	}
-	// If from or to are out of bound, then throw an error
+	// 🧸 If from or to are out of bound, then throw an error
 	if (from >= arr.length || from < 0) {
-		throw new Error('from has to be within array length');
 	}
 	if (to >= arr.length || to < 0) {
-		throw new Error('to has to be within array length');
 	}
-	// // Let's take the item to move
-	// const itemToMove = arr[from];
-	// // Now the parts of the array to move
-	// // differs based on whether from is greater than to or not
-	// if (from > to) {
-	// 	// The first part is 0 -> to - 1
-	// 	// Second part is the item to move
-	// 	// Third part is to -> from - 1
-	// 	// Last is from -> end
-	// 	return [
-	// 		...arr.slice(0, to),
-	// 		itemToMove,
-	// 		...arr.slice(to, from),
-	// 		...arr.slice(from + 1),
-	// 	];
-	// }
+	// Let's take the item to move
+	// Now the parts of the array to move
+	// differs based on whether from is greater than to or not
+	if (from > to) {
+		// The first part is 0 -> to - 1
+		// Second part is the item to move
+		// Third part is to -> from - 1
+		// Last is from -> end
+	}
 
-	// // Since from < to
-	// // First part is 0 -> from -1
-	// // Second part is from + 1 -> to
-	// // Third part is item to move
-	// // Last is to +1 -> end
-	// return [
-	// 	...arr.slice(0, from),
-	// 	...arr.slice(from + 1, to + 1),
-	// 	itemToMove,
-	// 	...arr.slice(to + 1),
-	// ];
-
-	// Or we could use splice on an copy array
-	const newArr = [...arr];
-	// 🎙️ So in the first operation
-	// 🎙️ newArr.splice(from, 1)
-	// 🎙️ We delete 1 item from `from` of the array and store it
-	// 🎙️ Then in the second operation
-	// 🎙️ newArr.splice(to, 0, ...)
-	// 🎙️ We delete 0 items from `to` and put the deleted
-	// 🎙️ item there.
-	newArr.splice(to, 0, ...newArr.splice(from, 1));
-	return newArr;
+	// Since from < to
+	// First part is 0 -> from -1
+	// Second part is from + 1 -> to
+	// Third part is item to move
+	// Last is to +1 -> end
 }
 
 /**
@@ -97,9 +65,7 @@ export function reOrderArray(arr, from, to) {
  * @param {Array} data Data of users.
  * @returns {string[]} Array of emails.
  */
-export function getEmails(data) {
-	return data.map(item => item.email);
-}
+export function getEmails(data) {}
 
 /**
  * Add any number of arguments passed to the function and return
@@ -112,10 +78,7 @@ export function getEmails(data) {
  * @param {any[]} numbers Possibly numbers.
  * @returns {number} Summed up value or 0 if all NaN.
  */
-export function addNumbers(...numbers) {
-	const parsedNumbers = numbers.map(safelyConvertToNumber);
-	return parsedNumbers.reduce((acc, cur) => acc + cur, 0);
-}
+export function addNumbers(...numbers) {}
 
 /**
  * A function to reverse the characters of a string.
@@ -127,9 +90,7 @@ export function addNumbers(...numbers) {
  * @param {string} str Input string.
  * @returns {string} Reversed string.
  */
-export function reverseString(str) {
-	return [...str].reverse().join('');
-}
+export function reverseString(str) {}
 
 /**
  * A function to filter users by countries.
@@ -144,12 +105,4 @@ export function reverseString(str) {
  * @param {string[]} countries Array of countries.
  * @return {Array} Filtered users who belong to the mentioned country.
  */
-export function getUsersFromCountries(users, countries) {
-	let acceptedCountries = countries;
-	if (!Array.isArray(countries)) {
-		acceptedCountries = Array.of(countries);
-	}
-	return users.filter(user =>
-		acceptedCountries.includes(user.address.country)
-	);
-}
+export function getUsersFromCountries(users, countries) {}

@@ -16,20 +16,7 @@
  *                           it would add a modifier classname based on base.
  * @returns {string} Fully qualified BEM classname.
  */
-export function getModifiedClassName(base, modifiers = {}) {
-	if (
-		typeof modifiers !== 'object' ||
-		Array.isArray(modifiers) ||
-		modifiers === null
-	) {
-		return base;
-	}
-	return Object.keys(modifiers).reduce(
-		(acc, modifier) =>
-			modifiers[modifier] ? `${acc} ${base}--${modifier}` : acc,
-		base
-	);
-}
+export function getModifiedClassName(base, modifiers = {}) {}
 
 /**
  * An template tag function to convert all Error into `<span class="error">error message</span>`
@@ -46,17 +33,7 @@ export function getModifiedClassName(base, modifiers = {}) {
  * @param  {...any} values Value parts.
  * @returns {string} Highlighted HTML string.
  */
-export function errorTagger(str, ...values) {
-	return str.reduce(
-		(acc, cur, index) =>
-			`${acc}${cur}${
-				values[index] instanceof Error
-					? `<span class="error">${values[index].message}</span>`
-					: values[index] || ''
-			}`,
-		''
-	);
-}
+export function errorTagger(str, ...values) {}
 
 // 💰 I advice you read these before taking on the promises
 //     👍 https://hackernoon.com/javascript-promises-best-practices-anti-patterns-b32309f65551
@@ -152,14 +129,8 @@ export function grillBread(preparedBread, salad) {
 export async function makeSandwich(breadItems, saladItems) {
 	try {
 		// 🧸 Prepare salad and bread in parallel
-		const [bread, salad] = await Promise.all([
-			prepareBread(breadItems),
-			prepareSalad(saladItems),
-		]);
 		// 🧸 Now grill it
-		const sandwich = await grillBread(bread, salad);
 		// 🧸 Return it
-		return sandwich;
 	} catch (e) {
 		throw new Error(`Could not prepare sandwich. Error: ${e.message}`);
 	}

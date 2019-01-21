@@ -10,13 +10,7 @@
  *
  * @returns {number} Value with "number" type, 0 if not a number.
  */
-export function safelyConvertToNumber(possiblyNum) {
-	if (typeof possiblyNum === 'symbol') {
-		return 0;
-	}
-	const num = Number.parseFloat(possiblyNum);
-	return Number.isNaN(num) ? 0 : num;
-}
+export function safelyConvertToNumber(possiblyNum) {}
 
 /**
  * Format a number into currency with a precision decimal.
@@ -28,9 +22,7 @@ export function safelyConvertToNumber(possiblyNum) {
  * @param {number} decimal Decimal precision.
  * @returns {number} Formatted currency value.
  */
-export function formatCurrency(num, decimal) {
-	return +safelyConvertToNumber(num).toFixed(decimal);
-}
+export function formatCurrency(num, decimal) {}
 
 /**
  * Get discounted price of an item, given the price and discount percentage.
@@ -42,13 +34,7 @@ export function formatCurrency(num, decimal) {
  * @param {number} percentage Discount percentage (like 25 for 25% discount).
  * @returns {number} formatted (2 decimal precision) value of discounted price.
  */
-export function getDiscountedValue(price, percentage) {
-	return formatCurrency(
-		safelyConvertToNumber(price) *
-			(1 - safelyConvertToNumber(percentage) / 100),
-		2
-	);
-}
+export function getDiscountedValue(price, percentage) {}
 
 /**
  * Check if a variable is falsy.
@@ -59,9 +45,7 @@ export function getDiscountedValue(price, percentage) {
  * @param {any} item The item to check against.
  * @returns {boolean} True if the item is falsy.
  */
-export function isFalsy(item) {
-	return !item;
-}
+export function isFalsy(item) {}
 
 /**
  * Check if the value is not null and not undefined.
@@ -70,9 +54,7 @@ export function isFalsy(item) {
  * @param {any} item The item to check against.
  * @returns {boolean} True if item has a value, false otherwise.
  */
-export function hasValue(item) {
-	return item !== null && item !== undefined;
-}
+export function hasValue(item) {}
 
 /**
  * Split a person's name and get an array of [firstName, lastName].
@@ -85,13 +67,7 @@ export function hasValue(item) {
  * @param {string} name Name of the person.
  * @returns {string[]} Array where firstName is in 0th position and last name is in 1st position.
  */
-export function getFirstAndLastNames(name) {
-	const names = name.split(' ');
-	const firstName = names[0];
-	names.splice(0, 1);
-	const lastName = names.join(' ');
-	return [firstName, lastName];
-}
+export function getFirstAndLastNames(name) {}
 
 /**
  * Get a property from an object. If the property doesn't exist then get the
@@ -105,9 +81,4 @@ export function getFirstAndLastNames(name) {
  * @param {any} def Default value.
  * @returns {any} Property value.
  */
-export function getValue(obj, key, def) {
-	if (!hasValue(obj)) {
-		return def;
-	}
-	return obj[key] || def;
-}
+export function getValue(obj, key, def) {}

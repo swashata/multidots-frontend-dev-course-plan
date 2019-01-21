@@ -13,15 +13,11 @@ class SomeClass {
 // 💰 Convert the above class with JavaScript's Function
 export function SomeFunction() {
 	// 🧸 See what should be the object's own property
-	this.name = 'Dragons';
 }
 
 // 🧸 Also think about methods in prototype chain.
 SomeFunction.prototype = {
 	// 🧸 See what should come from prototype
-	sayDragon() {
-		return this.name.toUpperCase();
-	},
 };
 
 // 🧸 Let's create a class State
@@ -32,28 +28,7 @@ SomeFunction.prototype = {
 // 🧸 getState(key = null) which gets all the state if key is null, or just the
 //    specified property.
 //    If key is not null and is not a string, then it should throw an error.
-export class State {
-	constructor(initialState) {
-		this.state = initialState;
-	}
-
-	setState(key, value) {
-		if (typeof key !== 'string') {
-			throw new Error('key has to be string');
-		}
-		this.state[key] = value;
-	}
-
-	getState(key = null) {
-		if (key === null || key === undefined) {
-			return this.state;
-		}
-		if (typeof key !== 'string') {
-			throw new Error('key has to be string');
-		}
-		return this.state[key];
-	}
-}
+export class State {}
 
 // 🧸 We have a constructor function Cycle.
 // 🧸 The purpose is to create a clock which will fire
@@ -86,16 +61,3 @@ export function CycleEnhanced() {}
 // 💡 The above two methods should clear old interval
 //    set the new values and start the clock again.
 // 💡 The prototype of CycleEnhanced should inherit the prototype of Cycle.
-
-CycleEnhanced.prototype = Object.create(Cycle.prototype);
-
-CycleEnhanced.prototype.changeCallback = function changeCallback(callback) {
-	this.stop();
-	this.callback = callback;
-	this.start();
-};
-CycleEnhanced.prototype.changeInterval = function changeInterval(interval) {
-	this.stop();
-	this.interval = interval;
-	this.start();
-};
