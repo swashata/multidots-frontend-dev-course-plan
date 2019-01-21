@@ -94,6 +94,40 @@ asyncCall.then(val => {
 		}
 	}
 	handleSomething();
+
+	// 🎙️ We have two different ways to reject an async function
+	// 🎙️ First is to just throw
+	async function iWillThrow() {
+		const stuff = await promiseWillResolve();
+		if (stuff === 'Done') {
+			throw new Error('I hate being done');
+		}
+	}
+	iWillThrow()
+		.then(val => {
+			console.log(val);
+		})
+		.catch(e => {
+			console.log(e);
+		});
+
+	// 🎙️ Or we can just return Promise.reject
+	async function iWillThrowToo() {
+		const stuff = await promiseWillResolve();
+		if (stuff === 'Done') {
+			return Promise.reject(new Error('I hate being done'));
+		}
+		return Promise.resolve('Yay not done');
+	}
+	iWillThrowToo()
+		.then(val => {
+			console.log(val);
+		})
+		.catch(e => {
+			console.log(e);
+		});
+	// 💰 Learn all about Promise.resolve and Promise.reject from mdn
+	//   Those are static methods.
 })();
 
 // ✅ Resolving multiple promises with `await`.
