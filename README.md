@@ -1,5 +1,7 @@
 <p align="center">
+
 [![Build Status](https://travis-ci.com/swashata/multidots-frontend-dev-course-plan.svg?branch=master)](https://travis-ci.com/swashata/multidots-frontend-dev-course-plan)
+
 </p>
 
 Topics of every session can be found inside `sessions/class-{day}` directory.
