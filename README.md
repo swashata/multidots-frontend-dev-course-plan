@@ -111,6 +111,38 @@ npm run test:03
 npm run test:04
 ```
 
+## Running the App [Class 05]
+
+On day 05, we build an app. First navigate to the directory
+
+```bash
+cd sessions/class-05/app
+```
+
+Now install dependencies
+
+```bash
+npm i
+```
+
+Start the development server with
+
+```bash
+npm start
+```
+
+Run tests with
+
+```bash
+npm run test
+```
+
+Build production files with
+
+```bash
+npm run build
+```
+
 ## What I need!
 
 -   Linux Based or OSX based system for `Day 05`.
