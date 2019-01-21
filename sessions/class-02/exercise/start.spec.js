@@ -1,4 +1,10 @@
-import { SomeFunction, State } from './start';
+import { SomeFunction, State, Cycle, CycleEnhanced } from './start';
+
+function waait(ms) {
+	return new Promise(resolve => {
+		setTimeout(resolve, ms);
+	});
+}
 
 describe('SomeFunction is perfect conversion', () => {
 	const dragon = new SomeFunction();
@@ -43,5 +49,47 @@ describe('State', () => {
 		expect(() => {
 			myState.getState(10);
 		}).toThrowError();
+	});
+});
+
+describe('CycleEnhanced', () => {
+	test('extends from Cycle', () => {
+		expect(
+			Cycle.prototype.isPrototypeOf(CycleEnhanced.prototype)
+		).toBeTruthy();
+	});
+	test('has all init from Cycle', async () => {
+		const cE = new CycleEnhanced();
+		const cb = jest.fn();
+		cE.init(50, cb);
+		cE.start();
+		await waait(500);
+		cE.stop();
+		expect(cb).toHaveBeenCalledTimes(9);
+	});
+	test('has its own changeCallback function', async () => {
+		const cE = new CycleEnhanced();
+		const cb = jest.fn();
+		cE.init(50, cb);
+		cE.start();
+		await waait(500);
+		const newCb = jest.fn();
+		cE.changeCallback(newCb);
+		await waait(500);
+		cE.stop();
+		expect(cb).toHaveBeenCalledTimes(9);
+		expect(newCb).toHaveBeenCalledTimes(9);
+	});
+	test('has its own changeInterval function', async () => {
+		const cE = new CycleEnhanced();
+		const cb = jest.fn();
+		cE.init(50, cb);
+		cE.start();
+		await waait(500);
+		cE.stop();
+		expect(cb).toHaveBeenCalledTimes(9);
+		cE.changeInterval(10);
+		await waait(100);
+		expect(cb).toHaveBeenCalledTimes(17);
 	});
 });

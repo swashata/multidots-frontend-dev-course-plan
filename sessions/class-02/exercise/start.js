@@ -55,7 +55,7 @@ export class State {
 	}
 }
 
-export function Cycle(interval, callback) {}
+export function Cycle() {}
 
 Cycle.prototype = {
 	init(interval, callback) {
