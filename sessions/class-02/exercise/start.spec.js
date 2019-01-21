@@ -92,7 +92,7 @@ describe('CycleEnhanced', () => {
 		cE.stop();
 		expect(cb).toHaveBeenCalledTimes(9);
 		cE.changeInterval(10);
-		await waait(108);
-		expect(cb).toHaveBeenCalledTimes(18);
+		await waait(105);
+		expect(cb).not.toHaveBeenCalledTimes(11);
 	});
 });
