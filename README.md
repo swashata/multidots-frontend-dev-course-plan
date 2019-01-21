@@ -100,6 +100,8 @@ Now edit `sessions/class-01/exercise/start.js` file and complete the tasks. As
 you proceed the tests will start passing and once you are done all the tests will
 pass.
 
+Once done press <kbd>Ctrl</kbd>+<kbd>c</kbd> to quit the test watcher.
+
 The finished exercise can be found under `sessions/class-01/exercise/start.js`
 of the `master` branch of this repo.
 
@@ -130,6 +132,8 @@ Start the development server with
 ```bash
 npm start
 ```
+
+Once done press <kbd>Ctrl</kbd>+<kbd>c</kbd> to quit the development server.
 
 Run tests with
 
