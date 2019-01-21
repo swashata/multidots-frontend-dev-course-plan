@@ -58,6 +58,9 @@ describe('CycleEnhanced', () => {
 			Cycle.prototype.isPrototypeOf(CycleEnhanced.prototype)
 		).toBeTruthy();
 	});
+	test('does not pollute the prototype of Cycle', () => {
+		expect(Cycle.prototype).not.toBe(CycleEnhanced.prototype);
+	});
 	test('has all init from Cycle', async () => {
 		const cE = new CycleEnhanced();
 		const cb = jest.fn();

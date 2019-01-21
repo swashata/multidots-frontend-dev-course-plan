@@ -55,23 +55,37 @@ export class State {
 	}
 }
 
+// 🧸 We have a constructor function Cycle.
+// 🧸 The purpose is to create a clock which will fire
+// 🧸 A callback after given interval.
 export function Cycle() {}
-
+// 🧸 With it comes the following methods.
 Cycle.prototype = {
+	// 🧸 This one sets the interval and callback of the clock.
 	init(interval, callback) {
 		this.interval = interval;
 		this.callback = callback;
 		this.intervalId = null;
 	},
+	// 🧸 This one starts the clock.
 	start() {
 		this.intervalId = setInterval(this.callback, this.interval);
 	},
+	// 🧸 This one stops the clock.
 	stop() {
 		clearInterval(this.intervalId);
 	},
 };
 
+// 🧸 Now the goal is to create another constructor function
 export function CycleEnhanced() {}
+// 🧸 This one should inherit from Cycle
+// 🧸 And have its own methods
+// 🧸 changeCallback - Which will change the callback on the go.
+// 🧸 changeInterval - Which will change the interval on the go.
+// 💡 The above two methods should clear old interval
+//    set the new values and start the clock again.
+// 💡 The prototype of CycleEnhanced should inherit the prototype of Cycle.
 
 CycleEnhanced.prototype = Object.create(Cycle.prototype);
 
