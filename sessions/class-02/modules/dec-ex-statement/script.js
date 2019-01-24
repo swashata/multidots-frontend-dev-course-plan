@@ -85,7 +85,9 @@ for (let i = 0; i < b; i++) {
 
 // 🎙️ Wherever JavaScript expects a statement, you can also write an expression.
 // 🎙️ We could go ahead and write here a statement
-factorial(12);
+if (factorial(2) > 2) {
+	console.log('Huh!');
+}
 // 🎙️ Or we could just write an expression
 const ourFactorial = factorial(12);
 
