@@ -1,5 +1,7 @@
 ## Q to all
 
+-   **Please say your name and one JavaScript thing you are good at**
+
 -   **What is a critical CSS?**
 
 Asking because many have said, Gulp and Grunt are used to create critical CSS.
