@@ -34,3 +34,5 @@ What is the scope of `this` for `scob.getHungry`?
 -   ✅ class methods.
 -   ✅ class properties.
 -   ✅ static methods and properties.
+-   ✅ Inheritance.
+-   ✅ Using rest and spread on constructor.
