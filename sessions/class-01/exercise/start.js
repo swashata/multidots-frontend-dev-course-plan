@@ -109,5 +109,7 @@ export function getValue(obj, key, def) {
 	if (!hasValue(obj)) {
 		return def;
 	}
-	return obj[key] || def;
+	// If the obj[key] is undefined, then return default,
+	// else return obj[def]
+	return obj[key] === undefined ? def : obj[key];
 }

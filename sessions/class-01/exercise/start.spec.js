@@ -118,6 +118,7 @@ describe('getFirstAndLastNames', () => {
 describe('getValue', () => {
 	test('returns value from object if found', () => {
 		expect(getValue({ foo: 'bar' }, 'foo', 'def')).toBe('bar');
+		expect(getValue({ foo: false }, 'foo', 'def')).toBe(false);
 	});
 	test('returns default if not found', () => {
 		expect(getValue({ foo: 'bar' }, 'biz', 'default')).toBe('default');
