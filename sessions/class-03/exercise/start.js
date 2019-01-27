@@ -1,5 +1,6 @@
 // Import some of our utility from previously completed exercise
 import { safelyConvertToNumber } from '../../class-01/exercise/start';
+import { type } from 'os';
 
 /**
  * Inserts an item to an existing array at a particular position
@@ -19,11 +20,15 @@ import { safelyConvertToNumber } from '../../class-01/exercise/start';
  */
 export function insertItemAtIndex(arr, index, item) {
 	// 🧸 Make sure it checks for index and array.length
-	// 🧸 Use Array.prototype.slice to create two arrays
+	if(index < 0 || index > arr.length){
+		throw new Error('idex is less then 0 or greater then Array length '); 
+	}
+	 
+	// 🧸 Use Array.prototype.slice to create two arrays		
 	// 🧸 Use spread operator to join them with the new item
+	return [...arr.slice(0,index),item,...arr.slice(index)];
 	// 🧸 At the index.
 }
-
 /**
  * Reorder an array by taking an existing item at an index
  * and put it at a new index, shifting the rest of the items.
@@ -36,11 +41,14 @@ export function reOrderArray(arr, from, to) {
 	// 🧸 If from and to are just the same, then just
 	// 🧸 return a copy of the array
 	if (from === to) {
+		return arr;
 	}
 	// 🧸 If from or to are out of bound, then throw an error
 	if (from >= arr.length || from < 0) {
+		throw new Error('Out of bound');
 	}
 	if (to >= arr.length || to < 0) {
+		throw new Error('Out of bound');
 	}
 	// Let's take the item to move
 	// Now the parts of the array to move
@@ -65,7 +73,9 @@ export function reOrderArray(arr, from, to) {
  * @param {Array} data Data of users.
  * @returns {string[]} Array of emails.
  */
-export function getEmails(data) {}
+export function getEmails(data) {
+	return data.map((item) => item.email);
+}
 
 /**
  * Add any number of arguments passed to the function and return
@@ -78,7 +88,10 @@ export function getEmails(data) {}
  * @param {any[]} numbers Possibly numbers.
  * @returns {number} Summed up value or 0 if all NaN.
  */
-export function addNumbers(...numbers) {}
+export function addNumbers(...numbers) {
+	const filteredNumbers = numbers.map((item)=> typeof item === 'number' || typeof item === 'string' ? Number(item) : 0);
+	return filteredNumbers.reduce((acc,cur) => acc + cur,0);
+}
 
 /**
  * A function to reverse the characters of a string.
@@ -90,7 +103,9 @@ export function addNumbers(...numbers) {}
  * @param {string} str Input string.
  * @returns {string} Reversed string.
  */
-export function reverseString(str) {}
+export function reverseString(str) {
+	return [...str].reverse().join('');
+}
 
 /**
  * A function to filter users by countries.
