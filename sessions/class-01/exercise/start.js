@@ -63,7 +63,7 @@ export function getDiscountedValue(price, percentage) {
  * @returns {boolean} True if the item is falsy.
  */
 export function isFalsy(item) {
-    return Boolean(item) ? false : true;
+    return !item;
 }
 
 /**
