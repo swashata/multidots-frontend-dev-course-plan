@@ -74,7 +74,7 @@ export function isFalsy(item) {
  * @returns {boolean} True if item has a value, false otherwise.
  */
 export function hasValue(item) {
-    return (item === null || item === undefined) ? false : true;
+    return item !== null && item !== undefined;
 }
 
 /**
