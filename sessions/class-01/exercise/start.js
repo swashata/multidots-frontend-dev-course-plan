@@ -14,7 +14,7 @@ export function safelyConvertToNumber(possiblyNum) {
     if(typeof possiblyNum === 'symbol'){
         return 0;
     }
-    let number = Number.parseFloat(possiblyNum);
+    const number = Number.parseFloat(possiblyNum);
     if(!Number.isNaN(number)){
         return number;
     }else{
