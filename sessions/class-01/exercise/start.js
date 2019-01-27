@@ -14,7 +14,7 @@ export function safelyConvertToNumber(possiblyNum) {
     if(typeof possiblyNum === 'symbol'){
         return 0;
     }
-    let number = Number.parseFloat(possiblyNum);
+    const number = Number.parseFloat(possiblyNum);
     if(!Number.isNaN(number)){
         return number;
     }else{
@@ -63,7 +63,7 @@ export function getDiscountedValue(price, percentage) {
  * @returns {boolean} True if the item is falsy.
  */
 export function isFalsy(item) {
-    return Boolean(item) ? false : true;
+    return !item;
 }
 
 /**
@@ -74,7 +74,7 @@ export function isFalsy(item) {
  * @returns {boolean} True if item has a value, false otherwise.
  */
 export function hasValue(item) {
-    return (item === null || item === undefined) ? false : true;
+    return item !== null && item !== undefined;
 }
 
 /**
