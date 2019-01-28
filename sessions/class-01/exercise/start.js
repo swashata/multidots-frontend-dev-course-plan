@@ -11,15 +11,16 @@
  * @returns {number} Value with "number" type, 0 if not a number.
  */
 export function safelyConvertToNumber(possiblyNum) {
-	if(typeof num === 'symbol'){
-		return 0;
-	}
-	const num = Number.parseFloat(possiblyNum);
-	if (Number.isNaN(num){
-		return 0;
-	} else {
-		return num;
-	}
+	return Number.isNaN(num) ? 0 : num;		
+	// if(typeof num === 'symbol'){
+	// 	return 0;
+	// }
+	// const num = Number.parseFloat(possiblyNum);
+	// if (Number.isNaN(num){
+	// 	return 0;
+	// } else {
+	// 	return num;
+	// }
 }
 
 /**
@@ -33,7 +34,7 @@ export function safelyConvertToNumber(possiblyNum) {
  * @returns {number} Formatted currency value.
  */
 export function formatCurrency(num, decimal) {
-	return safelyConvertToNumber(num).toFixed(decimal);
+	return +safelyConvertToNumber(num).toFixed(decimal);
 }
 	
 /**
@@ -46,7 +47,13 @@ export function formatCurrency(num, decimal) {
  * @param {number} percentage Discount percentage (like 25 for 25% discount).
  * @returns {number} formatted (2 decimal precision) value of discounted price.
  */
-export function getDiscountedValue(price, percentage) {}
+export function getDiscountedValue(price, percentage) {
+	return formatCurrency(
+		safelyConvertToNumber(price) *
+			(1 - safelyConvertToNumber(percentage) / 100),
+		2
+	);
+}
 	
 /**
  * Check if a variable is falsy.
@@ -58,11 +65,7 @@ export function getDiscountedValue(price, percentage) {}
  * @returns {boolean} True if the item is falsy.
  */
 export function isFalsy(item) {
-	if (item){
-		return false;
-	} else {
-		return true;
-	}
+	return !item;
 }
 
 /**
@@ -113,7 +116,7 @@ export function getFirstAndLastNames(name) {
  */
 export function getValue(obj, key, def) {
 	if (hasValue(obj)){
-		return obj(key);
+		return object[key];
 	} else {
 		return def;
 	}
