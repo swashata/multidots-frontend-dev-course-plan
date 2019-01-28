@@ -15,6 +15,7 @@ export function SomeFunction() {
 	// 🧸 See what should be the object's own property
 }
 
+
 // 🧸 Also think about methods in prototype chain.
 SomeFunction.prototype = {
 	// 🧸 See what should come from prototype
