@@ -11,14 +11,20 @@ class SomeClass {
 }
 
 // 💰 Convert the above class with JavaScript's Function
-export function SomeFunction() {
-	// 🧸 See what should be the object's own property
+function SomeFunction(name) {
+	console.log(name);
+	this.name = name;
 }
 
-// 🧸 Also think about methods in prototype chain.
 SomeFunction.prototype = {
-	// 🧸 See what should come from prototype
+	sayDragon() {
+		return this.name.toUpperCase();
+	}
 };
+const someName = new SomeFunction('Juhi');
+
+console.log(Object.prototype.hasOwnProperty.call(SomeFunction, 'name'));
+console.log(someName.sayDragon());
 
 // 🧸 Let's create a class State
 // 🧸 The class instantiation takes an initial state (an object).
@@ -28,12 +34,34 @@ SomeFunction.prototype = {
 // 🧸 getState(key = null) which gets all the state if key is null, or just the
 //    specified property.
 //    If key is not null and is not a string, then it should throw an error.
-export class State {}
+export class State {
+	constructor(obj){
+		this.state = obj;
+	}
+	setState(key, value){
+		if(key !== 'string'){
+			throw "Error";
+		} else {
+			this.setState ({
+			 })
+		}
+	}
+	getState(){
+		if(key === null){
+			return 'Juhi';
+		}
+		if(key !== 'string' && key !== null) {
+			throw "Error";
+		}
+	}
+}
 
 // 🧸 We have a constructor function Cycle.
 // 🧸 The purpose is to create a clock which will fire
 // 🧸 A callback after given interval.
-export function Cycle() {}
+function Cycle() {
+
+}
 // 🧸 With it comes the following methods.
 Cycle.prototype = {
 	// 🧸 This one sets the interval and callback of the clock.
@@ -53,7 +81,9 @@ Cycle.prototype = {
 };
 
 // 🧸 Now the goal is to create another constructor function
-export function CycleEnhanced() {}
+function CycleEnhanced() {
+
+}
 // 🧸 This one should inherit from Cycle
 // 🧸 And have its own methods
 // 🧸 changeCallback - Which will change the callback on the go.
@@ -61,3 +91,14 @@ export function CycleEnhanced() {}
 // 💡 The above two methods should clear old interval
 //    set the new values and start the clock again.
 // 💡 The prototype of CycleEnhanced should inherit the prototype of Cycle.
+CycleEnhanced.prototype = Object.create(Cycle.prototype);
+CycleEnhanced.prototype.changeCallback = function() {
+	this.stop();
+	this.callback = callback;
+	this.start();
+}
+CycleEnhanced.prototype.changeInterval = function() {
+	this.stop();
+	this.interval = interval;
+	this.start();
+}
