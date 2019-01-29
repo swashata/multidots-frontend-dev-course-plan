@@ -1,5 +1,5 @@
 // Import some of our utility from previously completed exercise
-// import { safelyConvertToNumber } from '../../class-01/exercise/start';
+import { safelyConvertToNumber } from '../../class-01/exercise/start';
 
 /**
  * Inserts an item to an existing array at a particular position
@@ -61,11 +61,14 @@ export function reOrderArray(arr, from, to) {
 	// 🧸 If from and to are just the same, then just
 	// 🧸 return a copy of the array
 	if (from === to) {
+		return [...arr];
 	}
 	// 🧸 If from or to are out of bound, then throw an error
 	if (from >= arr.length || from < 0) {
+		throw new Error('Error within array length');
 	}
 	if (to >= arr.length || to < 0) {
+		throw new Error('Error within array length');
 	}
 	// Let's take the item to move
 	// Now the parts of the array to move
