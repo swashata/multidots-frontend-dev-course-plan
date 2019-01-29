@@ -19,10 +19,35 @@ import { safelyConvertToNumber } from '../../class-01/exercise/start';
  */
 export function insertItemAtIndex(arr, index, item) {
 	// 🧸 Make sure it checks for index and array.length
+
+	console.log(arr);
+
+	let GivenIndex = arr.splice(0,index,50)
+	console.log(GivenIndex);
+
+	let arraysize = arr.length;
+	console.log(arraysize);
+	
+	if(index > 0 || index > arraysize){
+		throw new Error('Index Error');
+	}
+
 	// 🧸 Use Array.prototype.slice to create two arrays
+
+	let NewArray = arr.slice();
+	if(arr === NewArray){
+		return console.log(true); // flase
+	}
+
 	// 🧸 Use spread operator to join them with the new item
 	// 🧸 At the index.
+
+	return arr, NewArray;
+
 }
+
+insertItemAtIndex([2,5,5,5.8]);
+
 
 /**
  * Reorder an array by taking an existing item at an index
@@ -36,11 +61,14 @@ export function reOrderArray(arr, from, to) {
 	// 🧸 If from and to are just the same, then just
 	// 🧸 return a copy of the array
 	if (from === to) {
+		return [...arr];
 	}
 	// 🧸 If from or to are out of bound, then throw an error
 	if (from >= arr.length || from < 0) {
+		throw new Error('Error within array length');
 	}
 	if (to >= arr.length || to < 0) {
+		throw new Error('Error within array length');
 	}
 	// Let's take the item to move
 	// Now the parts of the array to move
@@ -65,7 +93,9 @@ export function reOrderArray(arr, from, to) {
  * @param {Array} data Data of users.
  * @returns {string[]} Array of emails.
  */
-export function getEmails(data) {}
+export function getEmails(data) {
+	return data.map(item => item.email);
+}
 
 /**
  * Add any number of arguments passed to the function and return
@@ -78,7 +108,19 @@ export function getEmails(data) {}
  * @param {any[]} numbers Possibly numbers.
  * @returns {number} Summed up value or 0 if all NaN.
  */
-export function addNumbers(...numbers) {}
+
+
+export function addNumbers(...numbers) {
+	const parsedNumbers = numbers.map(safelyConvertToNumber);
+	console.log(parsedNumbers);
+
+	let answer= parsedNumbers.reduce((acc, cur) => acc + cur, 0);
+	console.log(answer);
+
+	return answer;
+}
+
+addNumbers(5,10,15);
 
 /**
  * A function to reverse the characters of a string.
@@ -90,7 +132,13 @@ export function addNumbers(...numbers) {}
  * @param {string} str Input string.
  * @returns {string} Reversed string.
  */
-export function reverseString(str) {}
+export function reverseString(str) {
+	let ReverseAnswer = [...str].reverse().join('');
+	console.log(ReverseAnswer);
+	return ReverseAnswer;
+}
+
+reverseString("Rohit");
 
 /**
  * A function to filter users by countries.
@@ -105,4 +153,12 @@ export function reverseString(str) {}
  * @param {string[]} countries Array of countries.
  * @return {Array} Filtered users who belong to the mentioned country.
  */
-export function getUsersFromCountries(users, countries) {}
+export function getUsersFromCountries(users, countries) {
+	let AllCountries = countries;
+	if (!Array.isArray(countries)) {
+		AllCountries = Array.of(countries);
+	}
+	return users.filter(user =>
+		AllCountries.includes(user.address.country)
+	);
+}
