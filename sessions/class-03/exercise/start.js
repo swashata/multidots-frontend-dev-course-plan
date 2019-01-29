@@ -1,5 +1,5 @@
 // Import some of our utility from previously completed exercise
-import { safelyConvertToNumber } from '../../class-01/exercise/start';
+// import { safelyConvertToNumber } from '../../class-01/exercise/start';
 
 /**
  * Inserts an item to an existing array at a particular position
@@ -21,6 +21,9 @@ export function insertItemAtIndex(arr, index, item) {
 	// 🧸 Make sure it checks for index and array.length
 
 	console.log(arr);
+
+	let GivenIndex = arr.splice(0,index,50)
+	console.log(GivenIndex);
 
 	let arraysize = arr.length;
 	console.log(arraysize);

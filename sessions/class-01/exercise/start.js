@@ -34,7 +34,6 @@ export function formatCurrency(num, decimal) {
 	return +safelyConvertToNumber(num).toFixed(decimal);
 }
 
-
 /**
  * Get discounted price of an item, given the price and discount percentage.
  *
@@ -46,16 +45,10 @@ export function formatCurrency(num, decimal) {
  * @returns {number} formatted (2 decimal precision) value of discounted price.
  */
 export function getDiscountedValue(price, percentage) {
-	
-	let MainDiscount = (price * percentage) / 100;
-
-	let FinalePrice = price - MainDiscount;
-	console.log(FinalePrice);
-
-	console.log(MainDiscount);
-	return FinalePrice,MainDiscount;
+	const discountedPrice = safelyConvertToNumber(price);
+	const discountedPercent = 1 - safelyConvertToNumber(percentage) / 100;
+	return formatCurrency(discountedPrice * discountedPercent, 2);
 }
-
 
 getDiscountedValue(2500, 10);
 
@@ -72,7 +65,6 @@ export function isFalsy(item) {
 	return !item;
 }
 
-
 /**
  * Check if the value is not null and not undefined.
  * For everything else this should return true.
@@ -82,7 +74,6 @@ export function isFalsy(item) {
  */
 export function hasValue(item) {
 	return item !== null && item !== undefined;
-
 }
 
 /**
@@ -97,22 +88,22 @@ export function hasValue(item) {
  * @returns {string[]} Array where firstName is in 0th position and last name is in 1st position.
  */
 export function getFirstAndLastNames(name) {
-	let MainName= name.split(' ');
+	const MainName = name.split(' ');
 	console.log(MainName);
 
-	let Fname= MainName[0];
+	const Fname = MainName[0];
 	console.log(Fname);
-	
-	MainName.splice(0,1);
+
+	MainName.splice(0, 1);
 	console.log(MainName);
-	
-	let Lname = MainName.join(' ');
+
+	const Lname = MainName.join(' ');
 	console.log(Lname);
 
 	return [Fname, Lname];
 }
 
-getFirstAndLastNames("Rohit Gupta B");
+getFirstAndLastNames('Rohit Gupta B');
 
 /**
  * Get a property from an object. If the property doesn't exist then get the
@@ -127,7 +118,7 @@ getFirstAndLastNames("Rohit Gupta B");
  * @returns {any} Property value.
  */
 export function getValue(obj, key, def) {
-	if(!hasValue(obj) && obj === 'undefined' && obj === null ){
+	if (!hasValue(obj) && obj === 'undefined' && obj === null) {
 		return def;
 	}
 	return obj[key] || def;
