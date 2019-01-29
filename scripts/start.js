@@ -7,5 +7,8 @@ bs.init({
 		baseDir: 'sessions',
 		directory: true,
 	},
-	files: ['sessions/class-*/modules/**/*.{js,html}'],
+	files: [
+		'sessions/class-*/modules/**/*.{js,html}',
+		'sessions/class-live/browser/*.{js,html,css}',
+	],
 });

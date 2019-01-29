@@ -62,6 +62,24 @@
 // 🎙️ We are also given a `.catch` chainable function which is called only
 // 🎙️ when the promise rejects something.
 
+(function() {
+	function once(node) {
+		return new Promise(resolve => {
+			node.addEventListener('click', function listener(e) {
+				node.removeEventListener('click', listener);
+				resolve([node, e]);
+			});
+		});
+	}
+
+	const button = document.querySelector('#my-button');
+	once(button).then(([node, e]) => {
+		e.preventDefault();
+		node.setAttribute('disabled', 'disabled');
+		node.textContent = 'Clicked';
+	});
+})();
+
 // ✅ Example using browser `fetch`.
 
 // 🎙️ Let's see some example
