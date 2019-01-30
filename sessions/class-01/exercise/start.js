@@ -19,7 +19,6 @@ export function safelyConvertToNumber(possiblyNum) {
 		else { return num; }
     }
 }
-safelyConvertToNumber(8);
 
 /**
  * Format a number into currency with a precision decimal.
@@ -47,11 +46,10 @@ formatCurrency(2.845155,3);
  * @returns {number} formatted (2 decimal precision) value of discounted price.
  */
 export function getDiscountedValue(price, percentage) {
-    let discountedPrice = safelyConvertToNumber(price);
-    let discountedPercent =  (1 - safelyConvertToNumber(percentage) / 100);
-    return formatCurrency( discountedPrice * discountedPercent, 2 );
+    const castedPrice = safelyConvertToNumber(price);
+    const discountedPercent =  (1 - safelyConvertToNumber(percentage) / 100);
+    return formatCurrency( castedPrice * discountedPercent, 2 );
 }
-getDiscountedValue(99.82,25);   
 
 /**
  * Check if a variable is falsy.
@@ -133,8 +131,6 @@ export function getValue(obj, key, def) {
     if (!hasValue(obj)) {
 		return def;
     }
-    else {
-        return obj[key] || def;
-    }
+    return obj[key] === undefined ? def : obj[key];
 }
 getValue({ Name: 'Juhi' }, 'Name', 'default');

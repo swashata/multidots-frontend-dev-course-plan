@@ -1,6 +1,6 @@
 // 🧸 Here's a class with ES6 syntax
 // 🧸 Remember it is just syntactic sugar around JavaScript's prototypal inheritance.
-class SomeClass {
+export class SomeClass {
 	constructor() {
 		this.name = 'Dragons';
 	}
@@ -11,7 +11,7 @@ class SomeClass {
 }
 
 // 💰 Convert the above class with JavaScript's Function
-function SomeFunction(name) {
+export function SomeFunction(name) {
 	console.log(name);
 	this.name = name;
 }
@@ -21,10 +21,6 @@ SomeFunction.prototype = {
 		return this.name.toUpperCase();
 	}
 };
-const someName = new SomeFunction('Juhi');
-
-console.log(Object.prototype.hasOwnProperty.call(SomeFunction, 'name'));
-console.log(someName.sayDragon());
 
 // 🧸 Let's create a class State
 // 🧸 The class instantiation takes an initial state (an object).
@@ -39,29 +35,28 @@ export class State {
 		this.state = obj;
 	}
 	setState(key, value){
-		if(key !== 'string'){
-			throw "Error";
-		} else {
-			this.setState ({
-			 })
+		if(typeof(key) !== 'string'){
+			throw new Error('The type of key is not a String');
+		}
+		else{
+			this.state[key] = value;
 		}
 	}
-	getState(){
-		if(key === null){
-			return 'Juhi';
+	getState(key = null){
+		if(key === null || key === undefined){
+			return this.state;
 		}
-		if(key !== 'string' && key !== null) {
-			throw "Error";
-		}
+		if(typeof(key) !=='string'){ 
+			throw new Error('The type of key is not a String');
+		}		
+		return this.state[key];
 	}
 }
 
 // 🧸 We have a constructor function Cycle.
 // 🧸 The purpose is to create a clock which will fire
 // 🧸 A callback after given interval.
-function Cycle() {
-
-}
+export function Cycle() {}
 // 🧸 With it comes the following methods.
 Cycle.prototype = {
 	// 🧸 This one sets the interval and callback of the clock.
@@ -81,9 +76,7 @@ Cycle.prototype = {
 };
 
 // 🧸 Now the goal is to create another constructor function
-function CycleEnhanced() {
-
-}
+export function CycleEnhanced() {}
 // 🧸 This one should inherit from Cycle
 // 🧸 And have its own methods
 // 🧸 changeCallback - Which will change the callback on the go.
@@ -92,12 +85,12 @@ function CycleEnhanced() {
 //    set the new values and start the clock again.
 // 💡 The prototype of CycleEnhanced should inherit the prototype of Cycle.
 CycleEnhanced.prototype = Object.create(Cycle.prototype);
-CycleEnhanced.prototype.changeCallback = function() {
+CycleEnhanced.prototype.changeCallback = function(callback) {
 	this.stop();
 	this.callback = callback;
 	this.start();
 }
-CycleEnhanced.prototype.changeInterval = function() {
+CycleEnhanced.prototype.changeInterval = function(interval) {
 	this.stop();
 	this.interval = interval;
 	this.start();
