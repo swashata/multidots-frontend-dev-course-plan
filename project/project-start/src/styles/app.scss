@@ -1,0 +1,9 @@
+.app {
+	max-width: 240px;
+
+	& &__destroy {
+		.button {
+			width: 100%;
+		}
+	}
+}
