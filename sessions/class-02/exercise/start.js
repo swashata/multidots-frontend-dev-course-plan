@@ -1,6 +1,6 @@
 // 🧸 Here's a class with ES6 syntax
 // 🧸 Remember it is just syntactic sugar around JavaScript's prototypal inheritance.
-class SomeClass {
+export class SomeClass {
 	constructor() {
 		this.name = 'Dragons';
 	}
@@ -11,13 +11,15 @@ class SomeClass {
 }
 
 // 💰 Convert the above class with JavaScript's Function
-export function SomeFunction() {
-	// 🧸 See what should be the object's own property
+export function SomeFunction(name) {
+	console.log(name);
+	this.name = name;
 }
 
-// 🧸 Also think about methods in prototype chain.
 SomeFunction.prototype = {
-	// 🧸 See what should come from prototype
+	sayDragon() {
+		return this.name.toUpperCase();
+	}
 };
 
 // 🧸 Let's create a class State
@@ -28,7 +30,28 @@ SomeFunction.prototype = {
 // 🧸 getState(key = null) which gets all the state if key is null, or just the
 //    specified property.
 //    If key is not null and is not a string, then it should throw an error.
-export class State {}
+export class State {
+	constructor(obj){
+		this.state = obj;
+	}
+	setState(key, value){
+		if(typeof(key) !== 'string'){
+			throw new Error('The type of key is not a String');
+		}
+		else{
+			this.state[key] = value;
+		}
+	}
+	getState(key = null){
+		if(key === null || key === undefined){
+			return this.state;
+		}
+		if(typeof(key) !=='string'){ 
+			throw new Error('The type of key is not a String');
+		}		
+		return this.state[key];
+	}
+}
 
 // 🧸 We have a constructor function Cycle.
 // 🧸 The purpose is to create a clock which will fire
@@ -61,3 +84,14 @@ export function CycleEnhanced() {}
 // 💡 The above two methods should clear old interval
 //    set the new values and start the clock again.
 // 💡 The prototype of CycleEnhanced should inherit the prototype of Cycle.
+CycleEnhanced.prototype = Object.create(Cycle.prototype);
+CycleEnhanced.prototype.changeCallback = function(callback) {
+	this.stop();
+	this.callback = callback;
+	this.start();
+}
+CycleEnhanced.prototype.changeInterval = function(interval) {
+	this.stop();
+	this.interval = interval;
+	this.start();
+}
